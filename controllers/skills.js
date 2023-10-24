@@ -1,5 +1,5 @@
 // controllers/developers.js
-const developers = require('../models/developers.js') 
+const Developer = require('../models/developers.js') 
 
 module.exports = {
     index,
@@ -8,13 +8,13 @@ module.exports = {
 
 function index(req, res) {
     res.render('skills/index', {  
-        developers: developers.getAll()
+        developers: Developer.getAll()
     });
 }
 
 function show(req, res) {
     res.render('skills/show', {
-        developer: developers.getOne(req.params.id)
+        developer: Developer.getOne(req.params.id)
     });
 }
   
