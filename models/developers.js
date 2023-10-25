@@ -19,7 +19,8 @@ const developers = [
 module.exports = {    
     getAll,
     getOne,
-    create
+    create,
+    delete : deleteOne
 }
 
 function getOne(id) {
@@ -37,4 +38,12 @@ function create(id, skill) {
         developer.skills.push(skill)
         console.log(developer.skills)
     } 
+}
+
+function deleteOne(id, skill) {
+    const developer = developers.find(dev => dev.id === parseInt(id));
+    if (developer) {
+        const index = developer.skills.indexOf(skill);
+        developer.skills.splice(index, 1);
+    }
 }
