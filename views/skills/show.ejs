@@ -12,7 +12,14 @@
     <h1>Developer Details</h1>
     <div>
         <h2>Name: <%= developer.name %></h2>
-        <p>Skill: <%= developer.skill %></p>
+        <p>Skills:</p>
+        <ul>
+            <% developer.skills.forEach(skill => { %>
+                <li><%= skill %></li>
+            <% }); %>
+        </ul>
+        <p>Developer ID: <%= developer.id %></p>
     </div>
+    <a href="/skills/new/<%= developer.id %>">Add New Skill</a>
 </body>
 </html>

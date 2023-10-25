@@ -2,23 +2,24 @@ const developers = [
     {
         id: 1001,
         name: 'John Wick',
-        skill: 'Full-Stack Development',
+        skills: ['Full-Stack Development','Machine Learning'],
     },
     {
         id: 1002,
         name: 'James Bond',
-        skill: 'Front-End Development',
+        skills: ['Front-End Development','Data Science'],
     },
     {
         id: 1003,
         name: 'Dwayne Johnson',
-        skill: 'Back-End Development',
+        skills: ['Back-End Development','App Development'],
     }
 ];
 
-module.exports = {
+module.exports = {    
     getAll,
-    getOne
+    getOne,
+    create
 }
 
 function getOne(id) {
@@ -28,4 +29,12 @@ function getOne(id) {
 
 function getAll() {
     return developers;   
+}
+
+function create(id, skill) {
+    const developer = developers.find(dev => dev.id === parseInt(id));
+    if (developer) {
+        developer.skills.push(skill)
+        console.log(developer.skills)
+    } 
 }

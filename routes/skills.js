@@ -7,7 +7,11 @@ var skillsController = require('../controllers/skills'); // Pointing to the new 
 // GET /skills
 router.get('/', skillsController.index);
 
+router.get('/new/:id', skillsController.new);
 // GET /skills/:id
 router.get('/:id', skillsController.show);
 
+router.post('/create/:id', skillsController.create);
+
 module.exports = router;
+    
